@@ -1,0 +1,12 @@
+{
+  "name": "book_management_application",
+  "version": "1.0.0",
+  "description": "This is a book management application which stores data about books, users and their issuers.",
+  "license": "ISC",
+  "author": "Ashutosh Kumar",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
