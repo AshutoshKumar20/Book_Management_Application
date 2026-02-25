@@ -49,7 +49,20 @@ app.get("/users/:id", (req, res) => {
             data: user
         });
     }
-})
+});
+
+/* For get a user by id
+Route: /users
+Method: POST
+Description: Create a new user
+Access: Public
+Parameters: none
+*/
+
+app.post("/users", (req, res) => {
+    let { users } = req.params;
+
+});
 
 app.use((req, res) => {
     res.status(404).json({
