@@ -60,7 +60,7 @@ Parameters: none
 */
 
 app.post("/users", (req, res) => {
-    let { users } = req.params;
+    let { id, name, surname, email, subscriptionType, subscriptionDate } = req.body;
 
 });
 
