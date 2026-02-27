@@ -51,7 +51,7 @@ app.get("/users/:id", (req, res) => {
     }
 });
 
-/* For get a user by id
+/* For creating a new user
 Route: /users
 Method: POST
 Description: Create a new user
@@ -61,7 +61,26 @@ Parameters: none
 
 app.post("/users", (req, res) => {
     let { id, name, surname, email, subscriptionType, subscriptionDate } = req.body;
+    const user = users.find((each) => each.id === id);
+    if (user) {
+        res.send(404).json({
+            success: false,
+            message: "User Exists with this id"
+        })
+    }
 
+    users.push({
+        id,
+        name,
+        surname,
+        email,
+        subscriptionType,
+        subscriptionDate
+    })
+    return res.send(201).json({
+        success: true,
+        data: users
+    })
 });
 
 app.use((req, res) => {
