@@ -63,7 +63,7 @@ app.post("/users", (req, res) => {
     let { id, name, surname, email, subscriptionType, subscriptionDate } = req.body;
     const user = users.find((each) => each.id === id);
     if (user) {
-        res.send(404).json({
+        res.status(404).json({
             success: false,
             message: "User Exists with this id"
         })
@@ -77,7 +77,7 @@ app.post("/users", (req, res) => {
         subscriptionType,
         subscriptionDate
     })
-    return res.send(201).json({
+    return res.status(201).json({
         success: true,
         data: users
     })
