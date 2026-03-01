@@ -83,6 +83,15 @@ app.post("/users", (req, res) => {
     })
 });
 
+
+/* For updating a new user
+Route: /users/:id
+Method: PUT
+Description: Update a new user
+Access: Public
+Parameters: /:id
+*/
+
 app.use((req, res) => {
     res.status(404).json({
         message: "This route does not exist",
