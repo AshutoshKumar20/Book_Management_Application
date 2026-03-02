@@ -92,6 +92,10 @@ Access: Public
 Parameters: /:id
 */
 
+app.put("/users/:id", (req, res) => {
+
+})
+
 app.use((req, res) => {
     res.status(404).json({
         message: "This route does not exist",
