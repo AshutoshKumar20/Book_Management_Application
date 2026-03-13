@@ -93,6 +93,9 @@ Parameters: /:id
 */
 
 app.put("/users/:id", (req, res) => {
+    const { id } = req.params;
+    const { data } = req.body;
+
 
 })
 
