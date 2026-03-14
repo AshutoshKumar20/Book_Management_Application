@@ -84,13 +84,7 @@ app.post("/users", (req, res) => {
 });
 
 
-/* For updating a new user
-Route: /users/:id
-Method: PUT
-Description: Update a new user
-Access: Public
-Parameters: /:id
-*/
+
 
 app.put("/users/:id", (req, res) => {
     const { id } = req.params;
@@ -118,6 +112,32 @@ app.put("/users/:id", (req, res) => {
         data: updatedUser
     })
 });
+
+/* For deleting a user by id
+Route: /users/:id
+Method: DELETE
+Description: Delete a user by id
+Access: Public
+Parameters: /:id
+*/
+
+app.delete("/users/:id", (req, res) => {
+    const { id } = req.params;
+    const user = users.find((each) => each.id === id);
+    if (!user) {
+        return res.status(404).json({
+            success: false,
+            message: "User with this id is not found"
+        });
+    }
+    const index = users.indexOf(user);
+    users.splice(index, 1);
+
+    return res.status(202).json({
+        success: true,
+        data: users
+    })
+})
 
 app.use((req, res) => {
     res.status(404).json({
