@@ -1,9 +1,15 @@
-// const express = require("express");
-// const { books } = require("./data/books.json");
+const express = require("express");
+const { books } = require("../data/books.json");
 
-// app.get("/books", (req, res) => {
+const router = express.Router();
+
+
+
+// router.get("/books", (req, res) => {
 //     res.status(202).json({
 //         success: true,
 //         data: books
 //     })
 // })
+
+module.exports = router;
