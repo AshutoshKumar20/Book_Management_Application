@@ -3,13 +3,11 @@ const { books } = require("../data/books.json");
 
 const router = express.Router();
 
-
-
-// router.get("/books", (req, res) => {
-//     res.status(202).json({
-//         success: true,
-//         data: books
-//     })
-// })
+router.get("/", (req, res) => {
+    res.status(202).json({
+        success: true,
+        data: books
+    })
+})
 
 module.exports = router;

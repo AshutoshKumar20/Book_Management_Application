@@ -11,7 +11,7 @@ Access: Public
 Parameters: none
 */
 
-router.get("/users", (req, res) => {
+router.get("/", (req, res) => {
     res.status(202).json({
         success: true,
         data: users
@@ -26,7 +26,7 @@ Access: Public
 Parameters: id
 */
 
-router.get("/users/:id", (req, res) => {
+router.get("/:id", (req, res) => {
     const { id } = req.params;
     const user = users.find((each) => each.id === id);
     if (!user) {
@@ -50,7 +50,7 @@ Access: Public
 Parameters: none
 */
 
-router.post("/users", (req, res) => {
+router.post("/", (req, res) => {
     let { id, name, surname, email, subscriptionType, subscriptionDate } = req.body;
     const user = users.find((each) => each.id === id);
     if (user) {
@@ -74,7 +74,7 @@ router.post("/users", (req, res) => {
     })
 });
 
-router.put("/users/:id", (req, res) => {
+router.put("/:id", (req, res) => {
     const { id } = req.params;
     const { data } = req.body;
 
@@ -109,7 +109,7 @@ Access: Public
 Parameters: /:id
 */
 
-router.delete("/users/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
     const { id } = req.params;
     const user = users.find((each) => each.id === id);
     if (!user) {

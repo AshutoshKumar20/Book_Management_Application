@@ -1,5 +1,4 @@
 const express = require("express");
-const { users } = require("./data/users.json");
 
 const userRouter = require("./routes/users");
 const bookRouter = require("./routes/books")
