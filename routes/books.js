@@ -43,4 +43,16 @@ router.get("/:id", (req, res) => {
     })
 })
 
+/* Getting all issued books
+Route: /books/issued/books
+Method: POST
+Description: Get all issued books
+Access: Public
+Parameters: none
+*/
+
+router.post("/issued/books", (req, res) => {
+
+})
+
 module.exports = router;
