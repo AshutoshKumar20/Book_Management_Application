@@ -46,13 +46,13 @@ router.get("/:id", (req, res) => {
 
 /* Getting all issued books
 Route: /books/issued/books
-Method: POST
+Method: GET
 Description: Get all issued books
 Access: Public
 Parameters: none
 */
 
-router.post("/issued", (req, res) => {
+router.get("/issued/books", (req, res) => {
     const userWithIssuedBooks = users.filter((each) => {
         if (each.issuedBook) return each;
     });
@@ -68,7 +68,6 @@ router.post("/issued", (req, res) => {
         issuedBooks.push(book);
     })
 
-
     if (issuedBooks.length === 0)
         return res.status(404).json({
             success: false,
@@ -79,6 +78,14 @@ router.post("/issued", (req, res) => {
         success: true,
         data: issuedBooks
     })
-})
+});
+
+/* Creating a new book
+Route: /books
+Method: POST
+Description: Get all issued books
+Access: Public
+Parameters: none
+*/
 
 module.exports = router;
