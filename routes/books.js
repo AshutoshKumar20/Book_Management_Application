@@ -1,4 +1,5 @@
 const express = require("express");
+const { users } = require("../data/users.json")
 const { books } = require("../data/books.json");
 
 const router = express.Router();
@@ -51,8 +52,33 @@ Access: Public
 Parameters: none
 */
 
-router.post("/issued/books", (req, res) => {
+router.post("/issued", (req, res) => {
+    const userWithIssuedBooks = users.filter((each) => {
+        if (each.issuedBook) return each;
+    });
 
+    const issuedBooks = [];
+
+    userWithIssuedBooks.forEach((each) => {
+        const book = books.find((book) => book.id === each.issuedBook);
+
+        book.issuedBy = each.name;
+        book.issuedDate = each.issuedDate;
+        book.returnDate = each.returnDate;
+        issuedBooks.push(book);
+    })
+
+
+    if (issuedBooks.length === 0)
+        return res.status(404).json({
+            success: false,
+            message: "Book not found"
+        })
+
+    return res.status(200).json({
+        success: true,
+        data: issuedBooks
+    })
 })
 
 module.exports = router;
