@@ -83,9 +83,37 @@ router.get("/issued/books", (req, res) => {
 /* Creating a new book
 Route: /books
 Method: POST
-Description: Get all issued books
+Description: Creating new book
 Access: Public
 Parameters: none
+Data: author, name, genre, price, publication, id
 */
+
+router.post("/books", (req, res) => {
+    const { data } = req.body;
+
+    if (!data) {
+        return res.status(404).json({
+            success: false,
+            message: "Data Not Found"
+        })
+    }
+
+    const book = books.find((each) => {
+        if (!each.id) {
+            return res.status(404).json({
+                success: false,
+                message: "Book Not Found"
+            })
+        }
+        const newBook = { ...book, ...data };
+        return res.status(200).json({
+            success: true,
+            data: newBook
+        })
+    })
+});
+
+
 
 module.exports = router;

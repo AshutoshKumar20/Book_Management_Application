@@ -1,1 +1,0 @@
-book.issuedBy = each.name;
