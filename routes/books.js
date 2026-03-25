@@ -106,11 +106,11 @@ router.post("/books", (req, res) => {
                 message: "Book Not Found"
             })
         }
-        const newBook = { ...book, ...data };
-        return res.status(200).json({
-            success: true,
-            data: newBook
-        })
+    })
+    const newBook = { ...book, ...data };
+    return res.status(200).json({
+        success: true,
+        data: newBook
     })
 });
 
