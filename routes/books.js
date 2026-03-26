@@ -114,6 +114,18 @@ router.post("/books", (req, res) => {
     })
 });
 
+/* Updating a book by id
+Route: /books/:id
+Method: PUT
+Description: Update book
+Access: Public
+Parameters: id
+Data: author, name, genre, price, publication, id
+*/
 
+router.put("/:id", (req, res) => {
+    const { id } = req.params;
+    const { data } = req.body;
+})
 
 module.exports = router;
