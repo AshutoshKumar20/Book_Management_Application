@@ -89,7 +89,7 @@ Parameters: none
 Data: author, name, genre, price, publication, id
 */
 
-router.post("/books", (req, res) => {
+router.post("/", (req, res) => {
     const { data } = req.body;
 
     if (!data) {
@@ -125,6 +125,25 @@ Data: author, name, genre, price, publication, id
 router.put("/:id", (req, res) => {
     const { id } = req.params;
     const { data } = req.body;
-})
+
+    const book = books.find((each) => each.id === id);
+    if (!book) {
+        return res.status(404).json({
+            success: false,
+            message: "Book not exists with this id"
+        });
+    };
+
+    const updateBook = books.map((each) => {
+        if (each.id === id) {
+            return { ...each, ...data }
+        }
+        return each;
+    });
+    return res.status(200).json({
+        success: true,
+        data: updateBook
+    });
+});
 
 module.exports = router;
