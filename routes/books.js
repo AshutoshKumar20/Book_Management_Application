@@ -99,15 +99,14 @@ router.post("/books", (req, res) => {
         })
     }
 
-    const book = books.find((each) => {
-        if (!each.id) {
-            return res.status(404).json({
-                success: false,
-                message: "Book Not Found"
-            })
-        }
-    })
-    const newBook = { ...book, ...data };
+    const book = books.find((each) => each.id === data.id)
+    if (book) {
+        return res.status(404).json({
+            success: false,
+            message: "Book exists with this id"
+        });
+    };
+    const newBook = [...books, data];
     return res.status(200).json({
         success: true,
         data: newBook
