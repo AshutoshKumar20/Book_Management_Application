@@ -122,7 +122,7 @@ Parameters: id
 Data: author, name, genre, price, publication, id
 */
 
-router.put("/:id", (req, res) => {
+router.put("/books/:id", (req, res) => {
     const { id } = req.params;
     const { data } = req.body;
 
