@@ -127,5 +127,18 @@ router.delete("/:id", (req, res) => {
     })
 })
 
+/* For user subscription details
+Route: /books//subscription-details/:id
+Method: GET
+Description: Get all user subscription details
+Access: Public
+Parameters: id
+*/
+
+router.get("/subscription-details/:id", (req, res) => {
+    const { id } = req.params;
+
+})
+
 
 module.exports = router;
