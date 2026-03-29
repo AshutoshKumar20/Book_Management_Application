@@ -137,7 +137,7 @@ Parameters: id
 
 router.get("/subscription-details/:id", (req, res) => {
     const { id } = req.params;
-
+    const { data } = req.body
 })
 
 
