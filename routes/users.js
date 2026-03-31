@@ -137,7 +137,14 @@ Parameters: id
 
 router.get("/subscription-details/:id", (req, res) => {
     const { id } = req.params;
-    const { data } = req.body;
+    const user = users.find((each) => each.id === id);
+
+    if (!user) {
+        return res.status(404).json({
+            success: false,
+            message: "User not found"
+        });
+    }
     const getDateInDays = (data = "") => {
 
     }
