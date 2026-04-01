@@ -148,6 +148,7 @@ router.get("/subscription-details/:id", (req, res) => {
     const getDateInDays = (data = "") => {
 
     }
+    const subscriptionType = (data) => { };
 })
 
 
