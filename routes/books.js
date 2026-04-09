@@ -146,5 +146,12 @@ router.put("/books/:id", (req, res) => {
     });
 });
 
+/* Get all issued books with fine
+Route: /books/subscription-details/:id
+Method: GET
+Description: Get all issued books with fine
+Access: Public
+Parameters: id
+*/
 
 module.exports = router;

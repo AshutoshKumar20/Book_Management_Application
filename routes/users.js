@@ -128,7 +128,7 @@ router.delete("/:id", (req, res) => {
 })
 
 /* For user subscription details
-Route: /books//subscription-details/:id
+Route: /users/subscription-details/:id
 Method: GET
 Description: Get all user subscription details
 Access: Public
