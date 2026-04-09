@@ -155,7 +155,15 @@ router.get("/subscription-details/:id", (req, res) => {
         let days = Math.floor(date / 1000 * 60 * 60 * 24);
         return days;
     }
-    const subscriptionType = (data) => { };
+    const subscriptionType = (data) => {
+        if (user.subscriptionType === "Basic") {
+            date = date + 90;
+        } else if (user.subscriptionType === "Standard") {
+            date = date + 180;
+        } else if (user.subscriptionType === "Basic") {
+            date = date + 365;
+        }
+    };
 })
 
 
