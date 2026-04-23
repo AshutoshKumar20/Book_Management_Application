@@ -1,11 +1,11 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const DbConnection = require("./DatabaseConnection")
-
+dotenv.config();
 const userRouter = require("./routes/users");
 const bookRouter = require("./routes/books");
 
-dotenv.config();
+
 
 const app = express();
 
@@ -31,5 +31,5 @@ app.use((req, res) => {
 })
 
 app.listen(port, (req, res) => {
-    console.log(`Server is running at port${port}`);
+    console.log(`Server is running at port ${port}`);
 });
